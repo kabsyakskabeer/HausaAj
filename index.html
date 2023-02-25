@@ -44,11 +44,8 @@
 
         let bokoArea =document.getElementById("boko");
         let ajamiArea =document.getElementById("ajami");
-        let button = document.getElementById("button");
-        const v1 = document.getElementById("first");
-        const v2 = document.getElementById("second");
-        const v3 = document.getElementById("third");
-        const v4 = document.getElementById("fourth");
+        
+      
 
         function isVowel(x) {
              let result;
@@ -458,7 +455,7 @@
     
   
    
-    bokoArea.addEventListener("input", function(ii){
+    bokoArea.addEventListener("change", function(ii){
         let caretpos = doGetCaretPosition(this);
         let ajamiLength = ajamiArea.textContent.length;
         let bokoLength = memory.length;
