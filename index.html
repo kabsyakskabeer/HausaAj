@@ -484,10 +484,10 @@
             ajamiArea.textContent =  insertAtAjami(ajamiArea.textContent,(ajamiArea.textContent.length-sumOfMem(memory,doGetCaretPosition(this)-1)),first);
 
              memory.push(first.length);
-             first = ajamiArea.textContent.charAt(doGetCaretPosition(this)-1);
-             second = ajamiArea.textContent.charAt(doGetCaretPosition(this)-2);
-             third = ajamiArea.textContent.charAt(doGetCaretPosition(this)-3);
-             fourth = ajamiArea.textContent.charAt(doGetCaretPosition(this)-4);
+             first = ajamiArea.textContent.charAt(doGetCaretPosition(this));
+             second = ajamiArea.textContent.charAt(doGetCaretPosition(this)-1);
+             third = ajamiArea.textContent.charAt(doGetCaretPosition(this)-2);
+             fourth = ajamiArea.textContent.charAt(doGetCaretPosition(this)-3);
 
         
         
