@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajami writer</title>
+    <style>
+        @font-face {
+  font-family: AlkalamiRW;
+        src: url(Alkalami-Regular.woff2);
+    }
+     #boko{
+            width: 100%;
+            height: 30vh;
+        }
+    #ajamimi{
+            height: 30vh;
+            width: 100%;
+            font-family: AlkalamiRW, sans-serif; 
+            text-align: right;
+            font-size: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div><h3>Hausa Boko - Hausa Ajami converter</h3></div>
+    <div id="ajamimi">
+        <div id="ajamiBox"><p id="ajami"></p></div>
+       
+    </div>
+  
+    <textarea name="boko" id="boko" cols="30" rows="10"></textarea>  
+    
+
+    <script>
+      
+        
+        let first = "";
+        let second = "";
+        let third = "";
+        let fourth = "";
+        
+
+        let bokoArea =document.getElementById("boko");
+        let ajamiArea =document.getElementById("ajami");
+        let button = document.getElementById("button");
+        const v1 = document.getElementById("first");
+        const v2 = document.getElementById("second");
+        const v3 = document.getElementById("third");
+        const v4 = document.getElementById("fourth");
+
+        function isVowel(x) {
+             let result;
+            result = x == "َ" || x == "ٜ" || x == "ِ" || x == "ࣷ" || x == "ُ" || x == "ى" || x=="ْ";
+            return result;
+        }
+        function isConsonant(x){
+            let result = x == "ب"|| x == "ث"|| x == "د"|| x == "ࢻ"|| x == "غ"|| x == "ح"|| x == "ج"|| x == "ک"|| x == "ل"|| x == "م"|| x == "ࢽ"|| x == "ر"|| x == "س"|| x == "ت"|| x == "و"|| x == "ی"|| x == "ز";
+            return result;
+        }
+        function isSpace(x){
+            let result = x == " ";
+            return result;
+        }
+        function isFullStop(x){
+            let result = x == "." ;
+            return result;
+         }
+        function isBegining(x){
+            let result = x ==" " || x=="";
+                return result;
+        }
+        
+        
+        function getAjami(ch,first,second,third){
+            ///a
+            
+            if(ch == "a"){
+                if(isVowel(first)|| isSpace(first)){
+          
+                    return "أَ";
+                }else if(first ==""|| first ==" "){
+                    return  "أَ"
+                }else{
+                    return "َ"
+                }
+                
+
+            }else if(ch == "b"){
+                if(first == "ب"){
+                    return "ّ"; 
+
+                }else if(isConsonant(first)){
+                    return "ْب"
+
+                }else{
+                    
+                    return "ب";
+                }  
+                
+            }else if(ch == "c"){
+
+                if(first == "ث"){
+                    return "ّ"; 
+
+                }else if(isConsonant(first)){
+                    return "ْث"
+
+                }else{
+                    
+                    return "ث";
+                }  
+                
+            }else if(ch == "d"){
+                if(first == "د"){
+                    return "ّ";
+
+                }else if(isConsonant(first)){
+                    return "ْد"
+
+                }else{
+                    return "د";
+                }  
+                
+            }else if(ch == "e"){
+                return "ٜ";
+                
+            }else if(ch == "f"){
+                if(first == "ࢻ"){
+                    return "ّ";
+
+                }else if(isConsonant(first)){
+                    return "ْࢻ"
+
+                }else{
+                   
+                    return "ࢻ";
+                }  
+                
+            }else if(ch == "g"){
+                if(first == "غ"){
+                    return "ّ";
+
+                }else if(isConsonant(first)){
+                    return "ْغ"
+
+                }else{
+                    return "غ";
+                }  
+                
+            }else if(ch == "h"){
+                if(first == "ه"){
+                    return "ّ";
+
+                }else if(isConsonant(first)){
+                    return "ْه"
+
+                }else{
+                    return "ه";
+                }  
+                
+            }else if(ch == "i"){
+                if(isBegining(first)){
+                    return "إِ"
+                }if(isVowel(first)){
+                    return "ى"
+                }else{
+                    return "ِ"
+                }
+                
+            }else if(ch == "j"){
+                if(first == "ج"){
+                    return "ّ";
+
+                }else if(isConsonant(first)){
+                    return "ْج"
+
+                }else{
+                    return "ج";
+                }  
+                
+            }else if(ch == "k"){
+                if(first == "ک"){
+                    return "ّ";
+
+                }else if(isConsonant(first)){
+                    return "ْک"
+
+                }else{
+                    //return "ّ";
+                    return "ک";
+                }  
+                
+            }else if(ch == "l"){
+                if(first == "ل"){
+                    return "ّ";
+
+                }else if(isConsonant(first)){
+                    return "ْل"
+
+                }else{
+                   
+                    return "ل";
+                }  
+                
+            }else if(ch == "m"){
+                if(first == "م"){
+                    return "ّ";
+
+                }else if(isConsonant(first)){
+                    return "ْم"
+
+                }else{
+                   
+                    return "م";
+                }  
+                
+            }else if(ch == "n"){
+                if(first == "ࢽ"){
+                    return "ّ";
+
+                }else if(isConsonant(first)){
+                    return "ْࢽ"
+
+                }else{
+                   
+                    return "ࢽ";
+                }  
+                
+            }else if(ch == "o"){
+                if(isBegining(first)){
+                    return "عُو"
+                }else{
+                    return "ࣷ";
+                }
+                    
+            }else if(ch == "p"){
+                if(first =="ࢻ"){
+                    return "ّ";
+
+                }else if(isConsonant(first)){
+                    return "ْࢻ"
+
+                }else{
+                   
+                    return "ࢻ";
+                }  
+                
+            }else if(ch == "q"){
+                if(first == "ࢼ"){
+                    return "ّ";
+
+                }else if(isConsonant(first)){
+                    return "ْࢼ";
+
+                }else{
+                   
+                    return "ࢼ";
+                }  
+                
+            }else if(ch == "r"){
+                // if(first == "ر"){
+                //     return "ّ";
+
+                // }else 
+                if(isConsonant(first)){
+                    return "ْر"
+
+                }else if(first == "ِ"){
+                    return "ىر"
+
+                }else{
+                   
+                    return "ر";
+                }  
+                
+            }else if(ch == "s"){
+                if(first == "س"){
+                    return "ّ";
+
+                }else if(isConsonant(first)){
+                    return "ْس"
+
+                }else{
+                   
+                    return "س";
+                }  
+                
+            }else if(ch == "t"){
+                if(first == "ت"){
+                    return "ّ";
+
+                }else if(isConsonant(first)){
+                    return "ْت"
+
+                }else{
+                   
+                    return "ت";
+                }  
+                
+            }else if(ch == "u"){
+
+                if(first=="َ"|| first == " "){
+                    return "عُ"
+                }else if(isVowel(first)){
+                    return "عُ"
+
+                }else{
+                return "ُ";
+                }
+                
+            }else if(ch == "v"){
+                if(first == "ب"){
+                    return "ّ";
+
+                }else if(isConsonant(first)){
+                    return "ْب"
+
+                }else{
+                   
+                    return "ب";
+                }  
+                
+            }else if(ch == "w"){
+                if(first == "و"){
+                    return "ّ";
+
+                }else if(isConsonant(first)){
+                    return "ْو"
+
+                }else{
+                   
+                    return "و";
+                }  
+                
+            }else if(ch == "y"){
+                if(first == "ی"){
+                    return "ّ";
+
+                }else if(isConsonant(first)){
+                    return "ْی"
+
+                }else{
+                   
+                    return "ی";
+                }  
+                
+            }else if(ch == "z"){
+                if(first == "ز"){
+                    return "ّ";
+
+                }else if(isConsonant(first)){
+                    return "ْز"
+
+                } else{
+                   
+                    return "ز";
+                }  
+                
+                //space
+            }else if(isSpace(ch)){
+              if (isConsonant(first)) {
+                    return "ْ "
+                } else {
+                    return " "
+                }
+                // apostrophe
+            }else if(ch=="'"){
+                if (isVowel(first)) {
+                    return "ىٕ" 
+                } else if(isConsonant(first)){
+                    return "ْأ"
+
+                }else{
+                    return "'" 
+                }
+
+            }else if(ch =="."){
+                if (isVowel(first)) {
+                    return "."
+                } else if(isConsonant(first) && isSpace(second)){
+                    return "."
+
+                }else if(isConsonant(first)){
+                    return "ْ"
+
+                }else{
+                    return "" 
+                }
+
+            }else{
+                return "";
+            }
+            
+           
+            
+        }
+
+        let memory = []; // remember each input counts and use it during deletion
+    
+       function deleteCharcter(str,first,second,third,x){
+            return str.substring(0, str.length - x);
+            first = str[str.length-x];
+
+        
+       }
+       
+      // console.log(cutter("kabiru",2,4));
+       /*
+** Returns the caret (cursor) position of the specified text field (oField).
+** Return value range is 0-oField.value.length.
+*/
+    function doGetCaretPosition (oField) {
+
+        // Initialize
+        var iCaretPos = 0;
+
+        // IE Support
+        if (document.selection) {
+
+        // Set focus on the element
+        oField.focus();
+
+        // To get cursor position, get empty selection range
+        var oSel = document.selection.createRange();
+
+        // Move selection start to 0 position
+        oSel.moveStart('character', -oField.value.length);
+
+        // The caret position is selection length
+        iCaretPos = oSel.text.length;
+        }
+
+        // Firefox support
+        else if (oField.selectionStart || oField.selectionStart == '0')
+        iCaretPos = oField.selectionDirection=='backward' ? oField.selectionStart : oField.selectionEnd;
+
+        // Return results
+
+        
+        return iCaretPos;
+    }
+    function sumOfMem(arr,beg){
+        
+        const sum = arr.slice(beg,arr.length).reduce((partialSum, a) => partialSum + a, 0);
+        return sum;
+
+    }
+    function insertAtAjami(str, index, value) {
+    return str.substr(0, index) + value + str.substr(index);
+    }
+    function stringCutter(str,cutCount,caretPos){
+        let firstPart = str.substring(0,caretPos-cutCount);
+        let secondPart = str.substring(caretPos,str.length);
+        return firstPart + secondPart;
+       }
+    
+  
+   
+    bokoArea.addEventListener("input", function(ii){
+        let caretpos = doGetCaretPosition(this);
+        let ajamiLength = ajamiArea.textContent.length;
+        let bokoLength = memory.length;
+ 
+            
+        let x = memory.length-1;
+        
+        if(ii.inputType == 'deleteContentBackward'){
+            ajamiArea.textContent = stringCutter(ajamiArea.textContent,memory[doGetCaretPosition(this)-1],doGetCaretPosition(this)+1);
+            console.log(`position: ${doGetCaretPosition(this)}`);
+            first = ajamiArea.textContent.charAt(doGetCaretPosition(this)-1);
+            second = ajamiArea.textContent.charAt(doGetCaretPosition(this)-2);
+            third = ajamiArea.textContent.charAt(doGetCaretPosition(this)-3);
+            fourth = ajamiArea.textContent.charAt(doGetCaretPosition(this)-4);
+            
+            
+            //deleteCharcter(ajamiArea.textContent,first,second,third,memory[memory.length - 1]);
+              //  deleting(ajamiArea.textContent,first,second,third,memory[memory.length - 1]);
+            memory.pop()
+                        
+        }else{
+                
+            fourth = third;
+            third = second;
+            second = first;
+
+            first = getAjami([ii.data],first,second,third);
+         
+            ajamiArea.textContent =  insertAtAjami(ajamiArea.textContent,(ajamiArea.textContent.length-sumOfMem(memory,doGetCaretPosition(this)-1)),first);
+
+             memory.push(first.length);
+        
+        
+        
+        }
+    
+
+        });
+
+    </script>
+    
+</body>
+
+</html>
