@@ -476,9 +476,9 @@
                         
         }else{
                 
-            // fourth = third;
-            // third = second;
-            // second = first;
+            fourth = third;
+            third = second;
+            second = first;
 
             first = getAjami([ii.data],first,second,third);
             ajamiArea.textContent =  insertAtAjami(ajamiArea.textContent,(ajamiArea.textContent.length-sumOfMem(memory,doGetCaretPosition(this)-1)),first);
