@@ -460,8 +460,6 @@
         let ajamiLength = ajamiArea.textContent.length;
         let bokoLength = memory.length;
  
-            
-        let x = memory.length-1;
         
         if(ii.inputType == 'deleteContentBackward'){
             ajamiArea.textContent = stringCutter(ajamiArea.textContent,memory[doGetCaretPosition(this)-1],doGetCaretPosition(this)+1);
@@ -483,10 +481,14 @@
             second = first;
 
             first = getAjami([ii.data],first,second,third);
-         
             ajamiArea.textContent =  insertAtAjami(ajamiArea.textContent,(ajamiArea.textContent.length-sumOfMem(memory,doGetCaretPosition(this)-1)),first);
 
              memory.push(first.length);
+             first = ajamiArea.textContent.charAt(doGetCaretPosition(this)-1);
+             second = ajamiArea.textContent.charAt(doGetCaretPosition(this)-2);
+             third = ajamiArea.textContent.charAt(doGetCaretPosition(this)-3);
+             fourth = ajamiArea.textContent.charAt(doGetCaretPosition(this)-4);
+
         
         
         
