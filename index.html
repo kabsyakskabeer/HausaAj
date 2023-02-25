@@ -44,8 +44,11 @@
 
         let bokoArea =document.getElementById("boko");
         let ajamiArea =document.getElementById("ajami");
-        
-      
+        let button = document.getElementById("button");
+        const v1 = document.getElementById("first");
+        const v2 = document.getElementById("second");
+        const v3 = document.getElementById("third");
+        const v4 = document.getElementById("fourth");
 
         function isVowel(x) {
              let result;
@@ -53,7 +56,7 @@
             return result;
         }
         function isConsonant(x){
-            let result = x == "ب"|| x == "ث"|| x == "د"|| x == "ࢻ"|| x == "غ"|| x == "ح"|| x == "ج"|| x == "ک"|| x == "ل"|| x == "م"|| x == "ࢽ"|| x == "ر"|| x == "س"|| x == "ت"|| x == "و"|| x == "ی"|| x == "ز";
+            let result = x == "ب"|| x == "ث"|| x == "د"|| x == "ࢻ"|| x == "غ"|| x == "ه"|| x == "ج"|| x == "ک"|| x == "ل"|| x == "م"|| x == "ࢽ"|| x == "ر"|| x == "س"|| x == "ت"|| x == "و"|| x == "ی"|| x == "ز";
             return result;
         }
         function isSpace(x){
@@ -74,11 +77,9 @@
             ///a
             
             if(ch == "a"){
-                if(isVowel(first)|| isSpace(first)){
+                if(isVowel(first)||isBegining(first)){
           
                     return "أَ";
-                }else if(first ==""|| first ==" "){
-                    return  "أَ"
                 }else{
                     return "َ"
                 }
@@ -265,7 +266,7 @@
                     return "ْر"
 
                 }else if(first == "ِ"){
-                    return "ىر"
+                    return "یر"
 
                 }else{
                    
@@ -298,8 +299,11 @@
                 
             }else if(ch == "u"){
 
-                if(first=="َ"|| first == " "){
+                if(isBegining(first)){
                     return "عُ"
+                }else if(first=="َ"){
+                    return "و"
+
                 }else if(isVowel(first)){
                     return "عُ"
 
@@ -438,12 +442,12 @@
         
         return iCaretPos;
     }
+
     function sumOfMem(arr,beg){
-        
         const sum = arr.slice(beg,arr.length).reduce((partialSum, a) => partialSum + a, 0);
         return sum;
-
     }
+
     function insertAtAjami(str, index, value) {
     return str.substr(0, index) + value + str.substr(index);
     }
@@ -455,19 +459,16 @@
     
   
    
-    bokoArea.addEventListener('input', function(ii){
-        let caretpos = doGetCaretPosition(this);
-        let ajamiLength = ajamiArea.textContent.length;
-        let bokoLength = memory.length;
- 
+    bokoArea.addEventListener("input", function(ii){
         
+
         if(ii.inputType == 'deleteContentBackward'){
             ajamiArea.textContent = stringCutter(ajamiArea.textContent,memory[doGetCaretPosition(this)-1],doGetCaretPosition(this)+1);
-            console.log(`position: ${doGetCaretPosition(this)}`);
-            first = ajamiArea.textContent.charAt(doGetCaretPosition(this)-1);
-            second = ajamiArea.textContent.charAt(doGetCaretPosition(this)-2);
-            third = ajamiArea.textContent.charAt(doGetCaretPosition(this)-3);
-            fourth = ajamiArea.textContent.charAt(doGetCaretPosition(this)-4);
+          //  console.log(`position: ${doGetCaretPosition(this)}`);
+            first = ajamiArea.textContent.charAt(doGetCaretPosition(this)-1 + sumOfMem(memory,0)-memory.length);
+            second = ajamiArea.textContent.charAt(doGetCaretPosition(this)-2 + sumOfMem(memory,0)-memory.length);
+            third = ajamiArea.textContent.charAt(doGetCaretPosition(this)-3 + sumOfMem(memory,0)-memory.length);
+            fourth = ajamiArea.textContent.charAt(doGetCaretPosition(this)-4 + sumOfMem(memory,0)-memory.length);
             
             
             //deleteCharcter(ajamiArea.textContent,first,second,third,memory[memory.length - 1]);
@@ -484,15 +485,54 @@
             ajamiArea.textContent =  insertAtAjami(ajamiArea.textContent,(ajamiArea.textContent.length-sumOfMem(memory,doGetCaretPosition(this)-1)),first);
 
              memory.push(first.length);
-             first = ajamiArea.textContent.charAt(doGetCaretPosition(this));
-             second = ajamiArea.textContent.charAt(doGetCaretPosition(this)-1);
-             third = ajamiArea.textContent.charAt(doGetCaretPosition(this)-2);
-             fourth = ajamiArea.textContent.charAt(doGetCaretPosition(this)-3);
+             first = ajamiArea.textContent.charAt(doGetCaretPosition(this)-1 + sumOfMem(memory,0)-memory.length);
+            
+             second = ajamiArea.textContent.charAt(doGetCaretPosition(this)-2+ sumOfMem(memory,0)-memory.length);
+             third = ajamiArea.textContent.charAt(doGetCaretPosition(this)-3 + sumOfMem(memory,0)-memory.length);
+             fourth = ajamiArea.textContent.charAt(doGetCaretPosition(this)- 4 + sumOfMem(memory,0)-memory.length);
+
+             console.log(`first: ${first}`);
+              console.log(`second: ${second}`);
+            console.log(memory);
+            console.log(sumOfMem(memory,0)-memory.length);
+            //  console.log(`third: ${third}`);
+            //  console.log(`fourth: ${fourth}`);
 
         
         
         
         }
+ 
+    
+        
+        // if(ii.inputType == 'deleteContentBackward'){
+        //     ajamiArea.textContent = stringCutter(ajamiArea.textContent,memory[doGetCaretPosition(this)-1],doGetCaretPosition(this)+1);
+        //     console.log(`position: ${doGetCaretPosition(this)}`);
+        //     first = ajamiArea.textContent.charAt(doGetCaretPosition(this)-1);
+        //     second = ajamiArea.textContent.charAt(doGetCaretPosition(this)-2);
+        //     third = ajamiArea.textContent.charAt(doGetCaretPosition(this)-3);
+        //     fourth = ajamiArea.textContent.charAt(doGetCaretPosition(this)-4);
+            
+            
+        //     //deleteCharcter(ajamiArea.textContent,first,second,third,memory[memory.length - 1]);
+        //       //  deleting(ajamiArea.textContent,first,second,third,memory[memory.length - 1]);
+        //     memory.pop()
+                        
+        // }else{
+                
+        //     fourth = third;
+        //     third = second;
+        //     second = first;
+
+        //     first = getAjami([ii.data],first,second,third);
+         
+        //     ajamiArea.textContent =  insertAtAjami(ajamiArea.textContent,(ajamiArea.textContent.length-sumOfMem(memory,doGetCaretPosition(this)-1)),first);
+
+        //      memory.push(first.length);
+        
+        
+        
+        // }
     
 
         });
