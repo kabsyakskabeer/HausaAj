@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyTest</title>
+</head>
+<body>
+    <textarea id="ta" cols="20"></textarea>
+    <p id="log"></p>
+
+    <script>
+        function tr(ch){
+            if(ch=='k'){
+                return 'ک';
+            }else if(ch=='b'){
+                return 'ب'
+            }
+        }
+        let txt = document.getElementById('ta');
+        let log = document.getElementById('log');
+        txt.addEventListener('input',(e)=>{
+            log.textContent = tr(e.target.value);
+
+        });
+
+     
+    </script>
+</body>
+</html>
