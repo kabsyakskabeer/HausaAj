@@ -75,7 +75,7 @@
         function getAjami(ch,first,second,third){
             ///a
             
-            if(ch == "a"){
+            if(ch == "a"|| ch == "A"){
                 if(isVowel(first)||isBegining(first)){
           
                     return "أَ";
@@ -84,7 +84,7 @@
                 }
                 
 
-            }else if(ch == "b"){
+            }else if(ch == "b"|| ch == "B"){
                 if(first == "ب"){
                     return "ّ"; 
 
@@ -108,7 +108,7 @@
                     return "ݒ";
                 }  
                 
-            }else if(ch == "c"){
+            }else if(ch == "c"|| ch == "C"){
 
                 if(first == "ث"){
                     return "ّ"; 
@@ -121,7 +121,7 @@
                     return "ث";
                 }  
                 
-            }else if(ch == "d"){
+            }else if(ch == "d"|| ch == "D"){
                 if(first == "د"){
                     return "ّ";
 
@@ -144,10 +144,10 @@
                     return "ط";
                 }  
                 
-            }else if(ch == "e"){
+            }else if(ch == "e"|| ch == "E"){
                 return "ٜ";
                 
-            }else if(ch == "f"){
+            }else if(ch == "f" || ch == "F"){
                 if(first == "ࢻ"){
                     return "ّ";
 
@@ -159,7 +159,7 @@
                     return "ࢻ";
                 }  
                 
-            }else if(ch == "g"){
+            }else if(ch == "g"|| ch == "G"){
                 if(first == "غ"){
                     return "ّ";
 
@@ -170,7 +170,7 @@
                     return "غ";
                 }  
                 
-            }else if(ch == "h"){
+            }else if(ch == "h" || ch == "H"){
                 if(first=="س"){
             
                     return "ش"
@@ -187,7 +187,7 @@
                     return "ه";
                 }  
                 
-            }else if(ch == "i"){
+            }else if(ch == "i"|| ch == "I"){
                 if(isBegining(first)){
                     return "إِ"
                 }if(isVowel(first)){
@@ -196,7 +196,7 @@
                     return "ِ"
                 }
                 
-            }else if(ch == "j"){
+            }else if(ch == "j"|| ch == "J"){
                 if(first == "ج"){
                     return "ّ";
 
@@ -207,7 +207,7 @@
                     return "ج";
                 }  
                 
-            }else if(ch == "k"){
+            }else if(ch == "k"|| ch == "K"){
                 if(first == "ک"){
                     return "ّ";
 
@@ -232,7 +232,7 @@
                 }  
                 
             }
-            else if(ch == "l"){
+            else if(ch == "l"|| ch == "L"){
                 if(first == "ل"){
                     return "ّ";
 
@@ -244,7 +244,7 @@
                     return "ل";
                 }  
                 
-            }else if(ch == "m"){
+            }else if(ch == "m"|| ch == "M"){
                 if(first == "م"){
                     return "ّ";
 
@@ -256,7 +256,7 @@
                     return "م";
                 }  
                 
-            }else if(ch == "n"){
+            }else if(ch == "n"|| ch == "N"){
                 if(first == "ࢽ"){
                     return "ّ";
 
@@ -268,14 +268,14 @@
                     return "ࢽ";
                 }  
                 
-            }else if(ch == "o"){
+            }else if(ch == "o"|| ch == "O"){
                 if(isBegining(first)){
                     return "عُو"
                 }else{
                     return "ࣷ";
                 }
                     
-            }else if(ch == "p"){
+            }else if(ch == "p"|| ch == "P"){
                 if(first =="ࢻ"){
                     return "ّ";
 
@@ -287,7 +287,7 @@
                     return "ࢻ";
                 }  
                 
-            }else if(ch == "q"){
+            }else if(ch == "q"|| ch == "Q"){
                 if(first == "ࢼ"){
                     return "ّ";
 
@@ -299,7 +299,7 @@
                     return "ࢼ";
                 }  
                 
-            }else if(ch == "r"){
+            }else if(ch == "r"|| ch == "R"){
                 // if(first == "ر"){
                 //     return "ّ";
 
@@ -315,7 +315,7 @@
                     return "ر";
                 }  
                 
-            }else if(ch == "s"){
+            }else if(ch == "s"|| ch == "S"){
                 
                 if(first == "س"){
                     return "ّ";
@@ -343,7 +343,7 @@
                    // console.log(first);
                 }  
                 
-            }else if(ch == "t"){
+            }else if(ch == "t"|| ch == "T"){
                 if(first == "ت"){
                     return "ّ";
 
@@ -355,7 +355,7 @@
                     return "ت";
                 }  
                 
-            }else if(ch == "u"){
+            }else if(ch == "u"|| ch == "U"){
 
                 if(isBegining(first)){
                     return "عُ"
@@ -369,7 +369,7 @@
                 return "ُ";
                 }
                 
-            }else if(ch == "v"){
+            }else if(ch == "v"|| ch == "V"){
                 if(first == "ب"){
                     return "ّ";
 
@@ -381,7 +381,7 @@
                     return "ب";
                 }  
                 
-            }else if(ch == "w"){
+            }else if(ch == "w"|| ch == "W"){
                 if(first == "و"){
                     return "ّ";
 
@@ -393,7 +393,7 @@
                     return "و";
                 }  
                 
-            }else if(ch == "y"){
+            }else if(ch == "y"|| ch == "Y"){
                 if(first == "ی"){
                     return "ّ";
 
@@ -405,7 +405,7 @@
                     return "ی";
                 }  
                 
-            }else if(ch == "z"){
+            }else if(ch == "z"|| ch == "Z"){
                 if(first == "ز"){
                     return "ّ";
 
