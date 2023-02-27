@@ -207,7 +207,7 @@
                     return "ج";
                 }  
                 
-            }else if(ch == "k"){
+            }else if(ch == "KeyK"){
                 if(first == "ک"){
                     return "ّ";
 
@@ -531,13 +531,13 @@
     bokoArea.addEventListener('keypress', checkcaret); // Every character written
     bokoArea.addEventListener('mousedown', checkcaret); // Click down        
     bokoArea.addEventListener('touchstart', checkcaret); // Mobile
-//bokoArea.addEventListener('input', checkcaret); // Other input events
+bokoArea.addEventListener('input', checkcaret); // Other input events
 bokoArea.addEventListener('paste', checkcaret); // Clipboard actions
 bokoArea.addEventListener('cut', checkcaret);
 bokoArea.addEventListener('mousemove', checkcaret); // Selection, dragging text
 bokoArea.addEventListener('select', checkcaret); // Some browsers support this event
 bokoArea.addEventListener('selectstart', checkcaret); // Some browsers support this event
-bokoArea.addEventListener('keydown',checkcaret); //selectionchange
+//bokoArea.addEventListener('keydown',checkcaret); //selectionchange
 bokoArea.addEventListener('selectionchange',checkcaret); //selectionchange
 bokoArea.addEventListener('keyup',checkcaret); //selectionchange
 bokoArea.addEventListener('click',checkcaret); //selectionchange
@@ -558,9 +558,9 @@ function checkcaret() {
     
 }
    
-    bokoArea.addEventListener('input', function(ii){
+    bokoArea.addEventListener('keydown', function(ii){
         checkcaret; // update carret
-        first = getAjami([ii.data],first,second,third);
+        first = getAjami([ii.code],first,second,third);
         
 
         let bokoCaretPos = doGetCaretPosition(this);
@@ -589,9 +589,9 @@ function checkcaret() {
             //  second = ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos-2));
             //  third = ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos-3));
             first = ajamiArea.textContent.charAt(ajamiCaretPos-1);//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);    
-    second = ajamiArea.textContent.charAt(ajamiCaretPos-2);
-    third = ajamiArea.textContent.charAt(ajamiCaretPos-3);
-             fourth =  ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos+1));
+            second = ajamiArea.textContent.charAt(ajamiCaretPos-2);
+            third = ajamiArea.textContent.charAt(ajamiCaretPos-3);
+            fourth =  ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos+1));
 
  
      
