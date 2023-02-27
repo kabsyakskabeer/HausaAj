@@ -560,7 +560,7 @@ function checkcaret() {
    
     bokoArea.addEventListener('keypress', function(ii){
         checkcaret; // update carret
-        first = getAjami([ii.key],first,second,third);
+        first = getAjami([ii.keyCode],first,second,third);
         
 
         let bokoCaretPos = doGetCaretPosition(this);
