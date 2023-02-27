@@ -560,7 +560,11 @@ function checkcaret() {
    
     bokoArea.addEventListener('input', function(ii){
         checkcaret; // update carret
-        first = getAjami([ii.data],first,second,third);
+
+      
+        let txt = ii.target.value;
+      //  first = getAjami([ii.data],first,second,third);
+      first = getAjami(text.substring(memory.length),first,second,third);
         
 
         let bokoCaretPos = doGetCaretPosition(this);
@@ -583,7 +587,7 @@ function checkcaret() {
             
             ajamiArea.textContent =  insertAtAjami(ajamiArea.textContent,ajamiCaretPos,first);
             
-            memory.push(first.length);
+         //   memory.push(first.length);
 
             //  first = ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos-1));//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);
             //  second = ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos-2));
