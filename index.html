@@ -11,16 +11,16 @@
         src: url(Alkalami-Regular.woff2);
     }
      #boko{
-            width: 70%;
+            width: 99%;
             height: 20vh;
             font-family: AlkalamiRW, sans-serif; 
         }
     #ajamimi{
             height: 20vh;
-            width: 70%;
+            width: 99%;
             font-family: AlkalamiRW, sans-serif; 
             text-align: right;
-            font-size: 100%;
+            font-size: 150%;
         }
     </style>
 </head>
@@ -207,7 +207,7 @@
                     return "ج";
                 }  
                 
-            }else if(ch == "75"){
+            }else if(ch == "k"){
                 if(first == "ک"){
                     return "ّ";
 
@@ -528,10 +528,10 @@
     let pos =0;
        
     
-   // bokoArea.addEventListener('keypress', checkcaret); // Every character written
+    bokoArea.addEventListener('keypress', checkcaret); // Every character written
     bokoArea.addEventListener('mousedown', checkcaret); // Click down        
     bokoArea.addEventListener('touchstart', checkcaret); // Mobile
-bokoArea.addEventListener('input', checkcaret); // Other input events
+//bokoArea.addEventListener('input', checkcaret); // Other input events
 bokoArea.addEventListener('paste', checkcaret); // Clipboard actions
 bokoArea.addEventListener('cut', checkcaret);
 bokoArea.addEventListener('mousemove', checkcaret); // Selection, dragging text
@@ -558,10 +558,9 @@ function checkcaret() {
     
 }
    
-    bokoArea.addEventListener('keypress',(ii)=>{
+    bokoArea.addEventListener('input', function(ii){
         checkcaret; // update carret
-        first = getAjami([ii.keyCode],first,second,third);
-        
+        first = getAjami([ii.data],first,second,third);
         
 
         let bokoCaretPos = doGetCaretPosition(this);
@@ -576,8 +575,8 @@ function checkcaret() {
             //  second = ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos-2));
             //  third = ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos-3));
             first = ajamiArea.textContent.charAt(ajamiCaretPos-1);//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);    
-    second = ajamiArea.textContent.charAt(ajamiCaretPos-2);
-    third = ajamiArea.textContent.charAt(ajamiCaretPos-3);
+            second = ajamiArea.textContent.charAt(ajamiCaretPos-2);
+             third = ajamiArea.textContent.charAt(ajamiCaretPos-3);
              fourth =  ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos+1));
          
         }else{
@@ -590,11 +589,10 @@ function checkcaret() {
             //  second = ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos-2));
             //  third = ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos-3));
             first = ajamiArea.textContent.charAt(ajamiCaretPos-1);//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);    
-    second = ajamiArea.textContent.charAt(ajamiCaretPos-2);
-    third = ajamiArea.textContent.charAt(ajamiCaretPos-3);
+            second = ajamiArea.textContent.charAt(ajamiCaretPos-2);
+             third = ajamiArea.textContent.charAt(ajamiCaretPos-3);
              fourth =  ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos+1));
-
-        
+            
 
      
         }
