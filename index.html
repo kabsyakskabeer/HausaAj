@@ -470,7 +470,7 @@
 ** Returns the caret (cursor) position of the specified text field (oField).
 ** Return value range is 0-oField.value.length.
 */
-    function  checkcaret(oField){
+    function  doGetCaretPosition(oField){
       //  let oField = bokoArea;
 
         // Initialize
@@ -578,7 +578,7 @@ function checkcaret() {
 
         
 
-        let bokoCaretPos = checkcaret();
+        let bokoCaretPos = doGetCaretPosition(this);
         let ajamiCaretPos =  sumOfMem(memory,pos);
 
         if(ii.inputType == 'deleteContentBackward'){
