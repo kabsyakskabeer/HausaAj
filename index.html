@@ -588,6 +588,9 @@ function checkcaret(oField) {
     second = ajamiArea.textContent.charAt(ajamiCaretPos-1);
     third = ajamiArea.textContent.charAt(ajamiCaretPos-2);
     fourth =  ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos+1));
+    console.log("carat: " +iCaretPos);
+    console.log("first c" + first);
+    
 
     
 }
@@ -596,12 +599,12 @@ function checkcaret(oField) {
         checkcaret; // update carret
 
       
-        let txt = ii.target.value;
+        let txt = this.value;
        // console.log(txt);
       //  first = getAjami([ii.data],first,second,third);
-      first = getAjami(txt.substring(memory.length),first,second,third);
+      first = getAjami(txt.substring(pos-1,pos),first,second,third);
     //  console.log(txt.substring(memory.length));
-   // console.log("first: "+ first);
+   console.log("first: i"+ first);
   
 
 
@@ -609,6 +612,7 @@ function checkcaret(oField) {
 
         let bokoCaretPos = doGetCaretPosition(this);
         let ajamiCaretPos =  sumOfMem(memory,pos);
+        
 
         if(ii.inputType == 'deleteContentBackward'){
             ajamiArea.textContent = stringCutter(ajamiArea.textContent,memory[bokoCaretPos],ajamiCaretPos);
@@ -622,6 +626,7 @@ function checkcaret(oField) {
             second = ajamiArea.textContent.charAt(ajamiCaretPos-1);
              third = ajamiArea.textContent.charAt(ajamiCaretPos-3);
              fourth =  ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos+1));
+             console.log("first it" + first);
          
         }else{
            
@@ -637,6 +642,7 @@ function checkcaret(oField) {
             second = ajamiArea.textContent.charAt(ajamiCaretPos);
              third = ajamiArea.textContent.charAt(ajamiCaretPos-3);
              fourth =  ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos+1));
+             console.log("first c" + first);
             
 
      
