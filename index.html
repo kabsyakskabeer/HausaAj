@@ -549,6 +549,7 @@ function checkcaret() {
   if (newPos !== pos) {
     console.log('change to ' + newPos);
     pos = newPos;
+    console.log(newPos);
   }
   let ajamiCaretPos =  sumOfMem(memory,pos);
     first = ajamiArea.textContent.charAt(ajamiCaretPos-1);//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);    
