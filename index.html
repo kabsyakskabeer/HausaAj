@@ -497,7 +497,7 @@
 
         // Return results
 
-        
+      ///  pos = iCaretPos;
         return iCaretPos;
     }
 
@@ -553,9 +553,9 @@ function checkcaret() {
     console.log("first: "+ first);
   }
   let ajamiCaretPos =  sumOfMem(memory,pos);
-    first = ajamiArea.textContent.charAt(ajamiCaretPos-1);//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);    
-    second = ajamiArea.textContent.charAt(ajamiCaretPos-2);
-    third = ajamiArea.textContent.charAt(ajamiCaretPos-3);
+    first = ajamiArea.textContent.charAt(ajamiCaretPos);//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);    
+    second = ajamiArea.textContent.charAt(ajamiCaretPos-1);
+    third = ajamiArea.textContent.charAt(ajamiCaretPos-2);
     fourth =  ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos+1));
     
 }
