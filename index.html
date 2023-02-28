@@ -530,14 +530,14 @@
     
     bokoArea.addEventListener('keypress', checkcaret); // Every character written
     bokoArea.addEventListener('mousedown', checkcaret); // Click down        
-    bokoArea.addEventListener('touchstart', checkcaret); // Mobile
-bokoArea.addEventListener('input', checkcaret); // Other input events
+    bokoArea.addEventListener('touchstart', checkcaret); // Mobile//
+//bokoArea.addEventListener('input', checkcaret); // Other input events
 bokoArea.addEventListener('paste', checkcaret); // Clipboard actions
 bokoArea.addEventListener('cut', checkcaret);
 bokoArea.addEventListener('mousemove', checkcaret); // Selection, dragging text
 bokoArea.addEventListener('select', checkcaret); // Some browsers support this event
 bokoArea.addEventListener('selectstart', checkcaret); // Some browsers support this event
-//bokoArea.addEventListener('keydown',checkcaret); //selectionchange
+bokoArea.addEventListener('keydown',checkcaret); //selectionchange
 bokoArea.addEventListener('selectionchange',checkcaret); //selectionchange
 bokoArea.addEventListener('keyup',checkcaret); //selectionchange
 bokoArea.addEventListener('click',checkcaret); //selectionchange
@@ -558,7 +558,7 @@ function checkcaret() {
     
 }
    
-    bokoArea.addEventListener('keypress', function(ii){
+    bokoArea.addEventListener('input', function(ii){
         checkcaret; // update carret
 
       
