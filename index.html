@@ -30,6 +30,7 @@
         <div id="ajamiBox"><p id="ajami"></p></div>
        
     </div>
+    
   
     <textarea name="boko" id="boko" cols="30" rows="10"></textarea>  
     
@@ -470,8 +471,7 @@
 ** Returns the caret (cursor) position of the specified text field (oField).
 ** Return value range is 0-oField.value.length.
 */
-    function  doGetCaretPosition(oField){
-      //  let oField = bokoArea;
+    function doGetCaretPosition (oField) {
 
         // Initialize
         var iCaretPos = 0;
@@ -498,13 +498,8 @@
 
         // Return results
 
-       // pos = iCaretPos;
+        
         return iCaretPos;
-    //   let ajamiCaretPos =  sumOfMem(memory,pos);
-    // first = ajamiArea.textContent.charAt(ajamiCaretPos);//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);    
-    // second = ajamiArea.textContent.charAt(ajamiCaretPos-1);
-    // third = ajamiArea.textContent.charAt(ajamiCaretPos-2);
-    // fourth =  ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos+1));
     }
 
     function sumOfMem(arr,end){
@@ -534,86 +529,45 @@
     let pos =0;
        
     
-    bokoArea.addEventListener('keypress', checkcaret(this)); // Every character written
-    bokoArea.addEventListener('mousedown', checkcaret(bokoArea)); // Click down        
-    bokoArea.addEventListener('touchstart', checkcaret(bokoArea)); // Mobile//
+    bokoArea.addEventListener('keypress', checkcaret); // Every character written
+    bokoArea.addEventListener('mousedown', checkcaret); // Click down        
+    bokoArea.addEventListener('touchstart', checkcaret); // Mobile
 //bokoArea.addEventListener('input', checkcaret); // Other input events
-bokoArea.addEventListener('paste', checkcaret(bokoArea)); // Clipboard actions
-bokoArea.addEventListener('cut', checkcaret(bokoArea));
-bokoArea.addEventListener('mousemove', checkcaret(bokoArea)); // Selection, dragging text
-bokoArea.addEventListener('select', checkcaret(bokoArea)); // Some browsers support this event
-bokoArea.addEventListener('selectstart', checkcaret(bokoArea)); // Some browsers support this event
-bokoArea.addEventListener('keydown',checkcaret(bokoArea)); //selectionchange
-bokoArea.addEventListener('selectionchange',checkcaret(bokoArea)); //selectionchange
-bokoArea.addEventListener('keyup',checkcaret(bokoArea)); //selectionchange
-bokoArea.addEventListener('click',checkcaret(bokoArea)); //selectionchange
-bokoArea.addEventListener('dblclick',checkcaret(bokoArea)); //selectionchange
+bokoArea.addEventListener('paste', checkcaret); // Clipboard actions
+bokoArea.addEventListener('cut', checkcaret);
+bokoArea.addEventListener('mousemove', checkcaret); // Selection, dragging text
+bokoArea.addEventListener('select', checkcaret); // Some browsers support this event
+bokoArea.addEventListener('selectstart', checkcaret); // Some browsers support this event
+bokoArea.addEventListener('keydown',checkcaret); //selectionchange
+bokoArea.addEventListener('selectionchange',checkcaret); //selectionchange
+bokoArea.addEventListener('keyup',checkcaret); //selectionchange
+bokoArea.addEventListener('click',checkcaret); //selectionchange
+bokoArea.addEventListener('dblclick',checkcaret); //selectionchange
 
 
-// function checkcaret() {
-//   const newPos = bokoArea.selectionStart;
-//   if (newPos !== pos) {
-//     console.log('change to ' + newPos);
-//     pos = newPos;
-    // console.log("caret position: "+newPos);
-    // console.log("first: "+ first);
-//   }
-//   let ajamiCaretPos =  sumOfMem(memory,pos);
-//     first = ajamiArea.textContent.charAt(ajamiCaretPos);//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);    
-//     second = ajamiArea.textContent.charAt(ajamiCaretPos-1);
-//     third = ajamiArea.textContent.charAt(ajamiCaretPos-2);
-//     fourth =  ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos+1));
-    
-// }
-
-function checkcaret(oField){
-
-        // Initialize
-        var iCaretPos = 0;
-
-        // IE Support
-        if (document.selection) {
-
-        // Set focus on the element
-        oField.focus();
-
-        // To get cursor position, get empty selection range
-        var oSel = document.selection.createRange();
-
-        // Move selection start to 0 position
-        oSel.moveStart('character', -oField.value.length);
-
-        // The caret position is selection length
-        iCaretPos = oSel.text.length;
-        }
-
-        // Firefox support
-        else if (oField.selectionStart || oField.selectionStart == '0')
-        iCaretPos = oField.selectionDirection=='backward' ? oField.selectionStart : oField.selectionEnd;
-
-        // Return results
-
-        pos = iCaretPos;
-       return iCaretPos;
-      let ajamiCaretPos =  sumOfMem(memory,pos);
-    first = ajamiArea.textContent.charAt(ajamiCaretPos);//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);    
-    second = ajamiArea.textContent.charAt(ajamiCaretPos-1);
-    third = ajamiArea.textContent.charAt(ajamiCaretPos-2);
+function checkcaret() {
+  const newPos = bokoArea.selectionStart;
+  if (newPos !== pos) {
+    console.log('change to ' + newPos);
+    pos = newPos;
+  }
+  let ajamiCaretPos =  sumOfMem(memory,pos);
+    first = ajamiArea.textContent.charAt(ajamiCaretPos-1);//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);    
+    second = ajamiArea.textContent.charAt(ajamiCaretPos-2);
+    third = ajamiArea.textContent.charAt(ajamiCaretPos-3);
     fourth =  ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos+1));
-    console.log("caret position: "+newPos);
-    console.log("first: "+ first);
-
+    
 }
    
     bokoArea.addEventListener('input', function(ii){
-        checkcaret(bokoArea); // update carret
+        checkcaret; // update carret
 
       
-        let txt = bokoArea.value;
-     //   console.log(txt);
+        let txt = ii.target.value;
+       // console.log(txt);
       //  first = getAjami([ii.data],first,second,third);
       first = getAjami(txt.substring(memory.length),first,second,third);
-    ///  console.log(txt.substring(memory.length));
+    //  console.log(txt.substring(memory.length));
 
         
 
@@ -631,7 +585,7 @@ function checkcaret(oField){
             first = ajamiArea.textContent.charAt(ajamiCaretPos-1);//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);    
             second = ajamiArea.textContent.charAt(ajamiCaretPos-2);
              third = ajamiArea.textContent.charAt(ajamiCaretPos-3);
-             fourth =  ajamiArea.textContent.charAt(ajamiCaretPos+1);
+             fourth =  ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos+1));
          
         }else{
             
@@ -642,9 +596,9 @@ function checkcaret(oField){
             //  first = ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos-1));//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);
             //  second = ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos-2));
             //  third = ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos-3));
-            first = ajamiArea.textContent.charAt(ajamiCaretPos);//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);    
-            second = ajamiArea.textContent.charAt(ajamiCaretPos-1);
-             third = ajamiArea.textContent.charAt(ajamiCaretPos-2);
+            first = ajamiArea.textContent.charAt(ajamiCaretPos-1);//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);    
+            second = ajamiArea.textContent.charAt(ajamiCaretPos-2);
+             third = ajamiArea.textContent.charAt(ajamiCaretPos-3);
              fourth =  ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos+1));
             
 
