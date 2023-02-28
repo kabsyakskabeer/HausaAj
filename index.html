@@ -531,13 +531,13 @@
     bokoArea.addEventListener('keypress', checkcaret); // Every character written
     bokoArea.addEventListener('mousedown', checkcaret); // Click down        
     bokoArea.addEventListener('touchstart', checkcaret); // Mobile
-//bokoArea.addEventListener('input', checkcaret); // Other input events
+bokoArea.addEventListener('input', checkcaret); // Other input events
 bokoArea.addEventListener('paste', checkcaret); // Clipboard actions
 bokoArea.addEventListener('cut', checkcaret);
 bokoArea.addEventListener('mousemove', checkcaret); // Selection, dragging text
 bokoArea.addEventListener('select', checkcaret); // Some browsers support this event
 bokoArea.addEventListener('selectstart', checkcaret); // Some browsers support this event
-bokoArea.addEventListener('keydown',checkcaret); //selectionchange
+//bokoArea.addEventListener('keydown',checkcaret); //selectionchange
 bokoArea.addEventListener('selectionchange',checkcaret); //selectionchange
 bokoArea.addEventListener('keyup',checkcaret); //selectionchange
 bokoArea.addEventListener('click',checkcaret); //selectionchange
@@ -558,15 +558,15 @@ function checkcaret() {
     
 }
    
-    bokoArea.addEventListener('input', function(ii){
+    bokoArea.addEventListener('keydown', function(ii){
         checkcaret; // update carret
 
       
         let txt = ii.target.value;
-        console.log(txt);
+     //   console.log(txt);
       //  first = getAjami([ii.data],first,second,third);
       first = getAjami(txt.substring(memory.length),first,second,third);
-      console.log(txt.substring(memory.length));
+    ///  console.log(txt.substring(memory.length));
 
         
 
@@ -584,7 +584,7 @@ function checkcaret() {
             first = ajamiArea.textContent.charAt(ajamiCaretPos-1);//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);    
             second = ajamiArea.textContent.charAt(ajamiCaretPos-2);
              third = ajamiArea.textContent.charAt(ajamiCaretPos-3);
-             fourth =  ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos+1));
+             fourth =  ajamiArea.textContent.charAt(ajamiCaretPos+1);
          
         }else{
             
