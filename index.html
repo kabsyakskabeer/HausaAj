@@ -538,13 +538,7 @@ bokoArea.addEventListener('cut', checkcaret);
 bokoArea.addEventListener('mousemove', checkcaret); // Selection, dragging text
 bokoArea.addEventListener('select', checkcaret); // Some browsers support this event
 bokoArea.addEventListener('selectstart', checkcaret); // Some browsers support this event
-bokoArea.addEventListener('keydown', (e) => {      
-  if (e.key === "Delete") {
-    ajamiArea.textContent = "Delete Key Pressed";
-  } else {
-    //result.innerText = "Delete Key Not Pressed";
-  }
-});//checkcaret); //selectionchange
+bokoArea.addEventListener('keydown',checkcaret); //selectionchange
 bokoArea.addEventListener('selectionchange',checkcaret); //selectionchange
 bokoArea.addEventListener('keyup',checkcaret); //selectionchange
 bokoArea.addEventListener('click',checkcaret); //selectionchange
