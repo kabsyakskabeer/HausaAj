@@ -526,12 +526,6 @@
         return firstPart + secondPart;
     }
 
-    onCero = (e) => {
-    console.log(e.key);
-    e.preventDefault();
-    if (e.key === "Delete" || e.key === "Backspace") {
-        alert(e.key);
-    }
     
     let pos =0;
        
@@ -545,7 +539,13 @@ bokoArea.addEventListener('cut', checkcaret);
 bokoArea.addEventListener('mousemove', checkcaret); // Selection, dragging text
 bokoArea.addEventListener('select', checkcaret); // Some browsers support this event
 bokoArea.addEventListener('selectstart', checkcaret); // Some browsers support this event
-bokoArea.addEventListener('keydown',onCero); //selectionchange
+bokoArea.addEventListener('keydown',(e) => {
+    console.log(e.key);
+    e.preventDefault();
+    if (e.key === "Delete" || e.key === "Backspace") {
+        alert(e.key);
+    }
+}); //selectionchange
 bokoArea.addEventListener('selectionchange',checkcaret); //selectionchange
 bokoArea.addEventListener('keyup',checkcaret); //selectionchange
 bokoArea.addEventListener('click',checkcaret); //selectionchange
