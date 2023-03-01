@@ -549,18 +549,18 @@ bokoArea.addEventListener('keydown',(e) => {
         checkcaret; // update carret
 
       
-let txt = bokoArea.value;
+//let txt = bokoArea.value;
 // console.log(txt);
 //  first = getAjami([ii.data],first,second,third);
-first = getAjami(txt.substring(pos,pos+1),first,second,third);
+//first = getAjami(txt.substring(pos,pos+1),first,second,third);
 //  console.log(txt.substring(memory.length));
-console.log("first: i"+ first);
+//console.log("first: i"+ first);
 
 
 
 
 
-let bokoCaretPos = doGetCaretPosition(bokoArea);
+//let bokoCaretPos = doGetCaretPosition(this);
 let ajamiCaretPos =  sumOfMem(memory,pos);
 
         ajamiArea.textContent = stringCutter(ajamiArea.textContent,memory[bokoCaretPos],ajamiCaretPos);
@@ -655,18 +655,18 @@ function checkcaret(oField) {
         
 
         if(ii.inputType == 'deleteContentBackward'){
-            // ajamiArea.textContent = stringCutter(ajamiArea.textContent,memory[bokoCaretPos],ajamiCaretPos);
-            // memory.splice(bokoCaretPos,1);
+            ajamiArea.textContent = stringCutter(ajamiArea.textContent,memory[bokoCaretPos],ajamiCaretPos);
+            memory.splice(bokoCaretPos,1);
           
           
-            // // first = ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos-1));//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);
-            // //  second = ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos-2));
-            // //  third = ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos-3));
-            // first = ajamiArea.textContent.charAt(ajamiCaretPos);//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);    
-            // second = ajamiArea.textContent.charAt(ajamiCaretPos-1);
-            //  third = ajamiArea.textContent.charAt(ajamiCaretPos-3);
-            //  fourth =  ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos+1));
-            //  console.log("first it" + first);
+            // first = ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos-1));//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);
+            //  second = ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos-2));
+            //  third = ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos-3));
+            first = ajamiArea.textContent.charAt(ajamiCaretPos);//ajamiArea.textContent.charAt(doGetCaretPosition(this) -1 +sumOfMem(memory,0)-memory.length);    
+            second = ajamiArea.textContent.charAt(ajamiCaretPos-1);
+             third = ajamiArea.textContent.charAt(ajamiCaretPos-3);
+             fourth =  ajamiArea.textContent.charAt(sumOfMem(ajamiCaretPos+1));
+             console.log("first it" + first);
          
         }else{
            
